@@ -1,7 +1,5 @@
-import cv2
-import cvzone
-import numpy as np
-from cvzone.ColorModule import ColorFinder
+# for threshold testing...
+from imports import *
 
 width = 640
 height = 480
