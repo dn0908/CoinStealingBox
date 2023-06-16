@@ -1,7 +1,7 @@
 import serial
 import time
 
-from video_coin_count import get_money_value_index_manual
+from video_input import get_money_value_index_manual
 
 import cv2
 import cvzone
@@ -12,7 +12,7 @@ import modi
 
 import modi_control as MODI
 
-from serial_to_arduino import arduino_uno, SerialWrapper
+from arduino_connect import arduino_uno, SerialWrapper
 
 
 SCALE_TABLE = {
