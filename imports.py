@@ -1,20 +1,18 @@
 import serial
 import time
-
-from video_input import get_money_value_index_manual
-
 import cv2
 import cvzone
 import numpy as np
 from cvzone.ColorModule import ColorFinder
-
 import modi
 
-import modi_control as MODI
 
+from video_input import get_money_value_index_manual
+import modi_control as MODI
 from arduino_connect import arduino_uno, SerialWrapper
 
 
+# Scale Table
 SCALE_TABLE = {
     'FA5': 698,
     'SOL5': 783,
