@@ -13,7 +13,7 @@
 - VISVI STUDY9 Webcam
   
   ### Circuit Diagram for UNO
-    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/e09a1680-7d36-48f5-8f9a-c8a4d418eda6)
+    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/d7042f6c-d2d6-4685-a8b4-8a263863ba20)
 
   ### Circuit Diagram for MODI
     ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/65a91ab4-e5b1-414c-b0a1-f0d146d108b4)
