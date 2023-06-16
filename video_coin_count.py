@@ -6,7 +6,7 @@ from cvzone.ColorModule import ColorFinder
 width = 640
 height = 480
 
-cap = cv2.VideoCapture(0) # for windows
+cap = cv2.VideoCapture(1) # for windows
 cap.set(3, width)
 cap.set(4, height)
 
