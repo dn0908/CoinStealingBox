@@ -1,34 +1,5 @@
 from imports import *
-
-from video_coin_count import get_money_value_index_manual
-from serial_to_arduino import arduino_uno, SerialWrapper
-
-SCALE_TABLE = {
-    'FA5': 698,
-    'SOL5': 783,
-    'LA5': 880,
-    'TI5': 988,
-    'DO#5': 554,
-    'RE#5': 622,
-    'FA#5': 739,
-    'SOL#5': 830,
-    'LA#5': 932,
-    'DO6': 1046,
-    'RE6': 1174,
-    'MI6': 1318,
-    'FA6': 1397,
-    'SOL6': 1567,
-    'LA6': 1760,
-    'TI6': 1975,
-    'DO#6': 1108,
-    'RE#6': 1244,
-    'FA#6': 1479,
-    'SOL#6': 1661,
-    'LA#6': 1864,
-    'DO7': 2093,
-    'RE7': 2349,
-    'MI7': 2637
-}
+from imports import SCALE_TABLE
 
 class ProffesorBox:
     def __init__(self):
@@ -49,38 +20,15 @@ class ProffesorBox:
 
         # Flags
         self.power_flag : bool = False
-
         # Variables
         self.current_money = 0
         self.limit_money = 0
         self.count_for_button = 0
         self.count_threshold = 0
         self.money_list = [50, 100, 500, 1000, 5000, 10000, 50000]
-
-
-    def get_limit_money(self):
-        deg = self.dial.degree
-        print(deg)
-
-        if deg <= 15:
-            self.limit_money = 50
-        elif deg <= 29:
-            self.limit_money = 100
-        elif deg <= 43:
-            self.limit_money = 500
-        elif deg <= 57:
-            self.limit_money = 1000
-        elif deg <= 71:
-            self.limit_money = 5000
-        elif deg <= 85:
-            self.limit_money = 10000
-        elif deg <= 100:
-            self.limit_money = 50000
-        else:
-            print("Something gone wrong with the dial")
-
-
+    
     def check_on_off(self):
+        self.count_for_button = 0
         while True:
             if self.button.pressed:
                 print("pressed", self.count_for_button)
@@ -99,7 +47,7 @@ class ProffesorBox:
                 if (self.count_threshold > 20): # Button not pressed for 0.3 second
                     break
             time.sleep(0.01)
-        
+
     def set_display(self):
         if self.power_flag == True:
             self.display.text = "Hello!!"
@@ -109,93 +57,6 @@ class ProffesorBox:
             time.sleep(3)
 
             self.display.clear()
-
-                    
-    def happy_tune(self):
-        ###########################################
-        self.speaker.tune = SCALE_TABLE['TI5'], 100
-        time.sleep(0.1)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-        self.speaker.tune = SCALE_TABLE['TI5'], 100
-        time.sleep(0.1)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-        
-        self.speaker.tune = SCALE_TABLE['RE#6'], 100
-        time.sleep(0.1)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.speaker.tune = SCALE_TABLE['FA#6'], 100
-        time.sleep(0.2)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.speaker.tune = SCALE_TABLE['RE#6'], 100
-        time.sleep(0.1)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.speaker.tune = SCALE_TABLE['FA#6'], 100
-        time.sleep(0.4)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        ###########################################
-        self.speaker.tune = SCALE_TABLE['DO#6'], 100
-        time.sleep(0.1)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-        self.speaker.tune = SCALE_TABLE['DO#6'], 100
-        time.sleep(0.1)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-        
-        self.speaker.tune = SCALE_TABLE['FA6'], 100
-        time.sleep(0.1)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.speaker.tune = SCALE_TABLE['SOL#6'], 100
-        time.sleep(0.2)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.speaker.tune = SCALE_TABLE['FA6'], 100
-        time.sleep(0.1)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.speaker.tune = SCALE_TABLE['SOL#6'], 100
-        time.sleep(0.4)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.led1.turn_off()
-        self.led2.turn_off()
-
-    def sad_tune(self):
-        self.speaker.tune = SCALE_TABLE['FA#6'], 100
-        time.sleep(0.4)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.speaker.tune = SCALE_TABLE['FA6'], 100
-        time.sleep(0.4)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.speaker.tune = SCALE_TABLE['MI6'], 100
-        time.sleep(0.4)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
-        self.speaker.tune = SCALE_TABLE['RE#6'], 100
-        time.sleep(1)
-        self.speaker.turn_off()
-        time.sleep(0.001)
-
 
     def run(self):
         while True:
@@ -222,7 +83,7 @@ class ProffesorBox:
                 time.sleep(2)
 
                 # Get limit money
-                self.get_limit_money()
+                self.limit_money = MODI.get_limit_money(self.dial)
                 print("limit:", self.limit_money)
 
                 # Do action
@@ -233,7 +94,7 @@ class ProffesorBox:
                     
                     self.arduino.send_flag("1")
                     
-                    self.sad_tune()
+                    MODI.sad_tune(self.speaker)
                     self.led1.turn_off()
                     self.led2.turn_off()
                 else:
@@ -244,7 +105,7 @@ class ProffesorBox:
                     
                     self.arduino.send_flag("2")
 
-                    self.happy_tune()
+                    MODI.happy_tune(self.speaker, self.led1, self.led2)
                     self.led1.turn_off()
                     self.led2.turn_off()
 
@@ -252,7 +113,7 @@ class ProffesorBox:
 
 
 if __name__ == "__main__":
-    print("dd")
+    print("HELLO WORLD")
 
     Box = ProffesorBox()
 
