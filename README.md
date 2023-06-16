@@ -1,6 +1,6 @@
 # Coin Detecting & Stealing Money Box
-  **- 2023-Spring Semester**
-  **- IoT & Robotics Project**
+  **2023-Spring Semester**
+  **IoT & Robotics Project**
 
 ## Software Specifications
   - Window10 & Python 3.8
