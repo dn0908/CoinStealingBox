@@ -1,7 +1,7 @@
 from imports import *
 
 class arduino_uno:
-    port = "/dev/ttyACM0"
+    port = "COM14"
     baudrate = 9600
 
 class SerialWrapper():
@@ -16,9 +16,6 @@ class SerialWrapper():
 
         # Flags
         self.init_flag : bool = False
-        self.detect_flag : bool = False
-        self.align_flag : bool = False
-        self.end_flag : bool = False
 
         # Flush buffer
         self.device.reset_input_buffer()
@@ -26,7 +23,7 @@ class SerialWrapper():
         while(self.init_flag == False):
             line = self.read_line()
             print(line)
-            if (line == "Arduino is ready"):
+            if (line == "3.stop"):
                 self.init_flag = True
 
 
@@ -38,12 +35,6 @@ class SerialWrapper():
     
     # copied from chang-seol happeeeee
     def send_flag(self, flag):
-        if (flag == "d"):
-            self.detect_flag = True
-        elif (flag == "a"):
-            self.detect_flag = False
-            self.align_flag = True
-
         self.device.write(flag.encode())
 
 if __name__ == "__main__":
