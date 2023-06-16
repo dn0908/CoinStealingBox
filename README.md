@@ -1,7 +1,7 @@
 # Coin Detecting & Stealing Money Box
   * **2023-Spring Semester Yonsei University**
   * **IoT & Robotics Project**
-  * 연세대학교 [IoT와 로보틱스] 프로젝트
+  * **연세대학교 [IoT와 로보틱스] 프로젝트**
 
 ## Software Specifications
   - Window10 & Python 3.8
