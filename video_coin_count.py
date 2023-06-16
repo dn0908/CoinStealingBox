@@ -4,7 +4,7 @@ from imports import *
 width = 640
 height = 480
 
-cap = cv2.VideoCapture(1) # for windows
+cap = cv2.VideoCapture(1) # for windows | 0 : labtop cam | 1 : webcam
 cap.set(3, width)
 cap.set(4, height)
 
