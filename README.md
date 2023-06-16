@@ -1,9 +1,9 @@
 # Coin Detecting & Stealing Money Box
-  **2023-Spring Semester**
-  **IoT & Robotics Project**
+  **- 2023-Spring Semester**
+  **- IoT & Robotics Project**
 
 ## Software Specifications
-  - Python 3.8
+  - Window10 & Python 3.8
   - PyModi API
  
  **Image Preprocessing by OpenCV**
