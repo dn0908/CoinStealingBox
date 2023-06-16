@@ -1,8 +1,7 @@
-# CoinStealingBox
+# Coin Detecting & Stealing Money Box
   **2023-Spring Semester**
   **IoT & Robotics Project**
 
-**Coin Detecting & Stealing Money Box**
 ## Software Specifications
   - Python 3.8
   - PyModi API
