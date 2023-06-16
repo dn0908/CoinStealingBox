@@ -5,6 +5,7 @@
 ## Software Specifications
   - Python 3.8
   - PyModi API
+ 
  **Image Preprocessing by OpenCV**
  ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/8660818a-3541-4533-9fc9-e316274fee85)
 
