@@ -8,5 +8,6 @@
 - TT Motor DC Gearbox Motor Dual Shaft 200RPM DC 3-6V
 - VISVI STUDY9 Webcam
 #### Circuit Diagram for UNO
-    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/a53e47b3-0376-4bf7-869a-a81bb994a689)
+    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/3660b12f-a53f-4db1-907f-ab6162976f40)
+
 #### Circuit Diagram for MODI
