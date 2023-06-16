@@ -2,7 +2,6 @@
   2023-1 IoT & Robotics Project
 ## Coin Detecting & Stealing Money Box
 ### Software Specifications
-  Environment
   - Python 3.8
   - PyModi API
 ### Hardware Specifications
@@ -12,9 +11,10 @@
 - TT Motor DC Gearbox Motor Dual Shaft 200RPM DC 3-6V
 - VISVI STUDY9 Webcam
   
-### Circuit Diagram for UNO
-    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/a42ee2ad-b8de-4049-9b63-7cc63a1ded5e)
+  ### Circuit Diagram for UNO
+    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/28d37473-b0f6-437b-9bb4-d15e8ed8cfdd)
 
-### Circuit Diagram for MODI
-    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/13d4f49b-c7ba-4ac9-abbb-6e70a674493b)
+  ### Circuit Diagram for MODI
+    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/5a1aded1-5686-4c4e-a2fb-78b6ca805442)
+
 
