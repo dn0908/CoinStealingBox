@@ -7,7 +7,7 @@
   - Window10 & Python 3.8
   - PyModi API
  
-  **Image Preprocessing by OpenCV**
+  **Image(Video) Preprocessed by OpenCV**
  ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/8660818a-3541-4533-9fc9-e316274fee85)
 
 ## Hardware Specifications
@@ -15,6 +15,7 @@
 - Arduino UNO
 - L9110 / HG7881 2 Channel Motor Driver
 - TT Motor DC Gearbox Motor Dual Shaft 200RPM DC 3-6V
+- 65mm Diameter White Wheel
 - VISVI STUDY9 Webcam
   
   ### Circuit Diagram for UNO
