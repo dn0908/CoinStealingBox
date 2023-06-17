@@ -91,7 +91,7 @@ class ProffesorBox:
                     self.led1.red = 100
                     self.led2.red = 100
                     
-                    self.arduino.send_flag("1")
+                    self.arduino.send_flag("2")
                     
                     MODI.sad_tune(self, self.speaker)
                     self.led1.turn_off()
@@ -102,7 +102,7 @@ class ProffesorBox:
                     self.led1.green = 50
                     self.led2.green = 50
                     
-                    self.arduino.send_flag("2")
+                    self.arduino.send_flag("1")
 
                     MODI.happy_tune(self, self.speaker, self.led1, self.led2)
                     self.led1.turn_off()

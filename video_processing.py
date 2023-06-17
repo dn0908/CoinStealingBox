@@ -1,4 +1,9 @@
-from imports import *
+# for image preprocessing check
+# do not remove !!
+import cv2
+from skimage import measure 
+import numpy as np
+import cvzone
 
 cv2.destroyAllWindows()
 
@@ -24,10 +29,7 @@ while True:
     hsv = cv2.cvtColor(cropframe, cv2.COLOR_BGR2HSV)
     print(hsv.min(axis=(0, 1)), hsv.max(axis=(0, 1)))
 
-
-    # HSV range values needs to be changed....
-
-    # 만원
+    # 만원 픽스
     green_lower=(30,50,50)
     green_higher=(40,255,255)
     green = cv2.inRange(cropframe, green_lower, green_higher)
@@ -37,7 +39,7 @@ while True:
         print('GREEN == 10000 WON')
 
 
-    # 천원
+    # 천원 미정
     blue_lower=(80,80,0)
     blue_higher=(200,100,20)
     blue = cv2.inRange(cropframe, blue_lower, blue_higher)
@@ -46,7 +48,7 @@ while True:
     for cnt in blue_contours:
         print('BLUE == 1000 WON')
 
-    # 오만원
+    # 오만원 미정
     yellow_lower=(80,180,80)
     yellow_higher=(100,255,100)
     yello = cv2.inRange(cropframe, yellow_lower, yellow_higher)
