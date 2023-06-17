@@ -1,7 +1,7 @@
 from imports import *
 
 class arduino_uno:
-    port = "COM8"
+    port = "COM14"
     baudrate = 9600
 
 class SerialWrapper():

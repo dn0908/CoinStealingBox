@@ -1,5 +1,9 @@
 from imports import *
 
+from manual import get_money_value_index_manual
+import modi_control
+from arduino_connect import arduino_uno, SerialWrapper
+
 class ProffesorBox:
     def __init__(self):
         # Arduino serial connection
@@ -11,7 +15,7 @@ class ProffesorBox:
         self.bundles.print_topology_map()
 
         self.led1 = self.bundles.leds[0]          # Led for left eye
-        self.led2 = self.bundles.leds[1]          # Led for right eye
+        # self.led2 = self.bundles.leds[1]          # Led for right eye
         self.display = self.bundles.displays[0]   # Display
         self.button = self.bundles.buttons[0]     # Button for turning on/off
         self.dial = self.bundles.dials[0]         # Dial for limit of receiving money
@@ -19,6 +23,7 @@ class ProffesorBox:
 
         # Flags
         self.power_flag : bool = False
+
         # Variables
         self.current_money = 0
         self.limit_money = 0
@@ -66,7 +71,7 @@ class ProffesorBox:
                 self.display.text = "You have  " + str(self.current_money) + " Won!!"
                 
                 # Get money value from detection
-                money_value = get_money_value_index_manual(self.button)
+                money_value = get_money_value_index_manual()
                 
                 # Search for money index
                 money_index = 0
@@ -82,31 +87,31 @@ class ProffesorBox:
                 time.sleep(2)
 
                 # Get limit money
-                self.limit_money = MODI.get_limit_money(self,self.dial)
+                self.limit_money = modi_control.get_limit_money(self,self.dial)
                 print("limit:", self.limit_money)
 
                 # Do action
                 if money_value < self.limit_money:
                     self.display.text = "NO !!!!!!!! GO AWAY !!!"
                     self.led1.red = 100
-                    self.led2.red = 100
+                    # self.led2.red = 100
                     
-                    self.arduino.send_flag("2")
+                    # self.arduino.send_flag("2")
                     
-                    MODI.sad_tune(self, self.speaker)
+                    modi_control.sad_tune(self, self.speaker)
                     self.led1.turn_off()
-                    self.led2.turn_off()
+                    # self.led2.turn_off()
                 else:
                     self.display.text = "YES !!!!!!! GIVE ME !!!"
                     self.current_money += money_value
                     self.led1.green = 50
-                    self.led2.green = 50
+                    # self.led2.green = 50
                     
                     self.arduino.send_flag("1")
 
-                    MODI.happy_tune(self, self.speaker, self.led1, self.led2)
+                    modi_control.happy_tune(self, self.speaker)
                     self.led1.turn_off()
-                    self.led2.turn_off()
+                    # self.led2.turn_off()
 
                 self.display.clear()
 

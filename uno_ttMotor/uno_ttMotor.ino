@@ -15,8 +15,8 @@ void setup() {
   Serial.begin(9600);
 
   Serial.println("select mode");
-  Serial.println("1.move CCW");
-  Serial.println("2.move CW");
+  Serial.println("1.long movement");
+  Serial.println("2.short movement");
   Serial.println("3.stop");
 
 }
@@ -34,7 +34,7 @@ void loop() {
       forward();
       break;
     case 2:         // if input=2 ....... motor turn clockwise
-      backward();
+      forward_v2();
       break;
     case 3:         // if input=1 ....... motor turn stop
       Stop();
@@ -45,89 +45,36 @@ void loop() {
 }
 }
 void forward() {          //counter-clockwise
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
-  delay(50);
-  analogWrite(A1, 255);
-  analogWrite(A2, 0);
-  delay(50);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
+  for(int i=0; i<13; i++)
+  {
+    analogWrite(A1, 255);
+    analogWrite(A2, 0);
+    delay(100);
+    digitalWrite(A1, LOW);
+    digitalWrite(A2, LOW);
+    delay(50);
+  }
+//  for(int i=0; i<7; i++)
+//  {
+//    analogWrite(A1, 255);
+//    analogWrite(A2, 0);
+//    delay(30);
+//    digitalWrite(A1, LOW);
+//    digitalWrite(A2, LOW);
+//    delay(50);
+//  }
+}
+
+void forward_v2() {          //counter-clockwise
+  for(int i=0; i<3; i++)
+  {
+    analogWrite(A1, 255);
+    analogWrite(A2, 0);
+    delay(50);
+    digitalWrite(A1, LOW);
+    digitalWrite(A2, LOW);
+    delay(70);
+  }
 }
 
 void backward() {         //clockwise
