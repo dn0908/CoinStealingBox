@@ -1,5 +1,4 @@
 from imports import *
-from imports import SCALE_TABLE
 
 class ProffesorBox:
     def __init__(self):
@@ -83,7 +82,7 @@ class ProffesorBox:
                 time.sleep(2)
 
                 # Get limit money
-                self.limit_money = MODI.get_limit_money(self.dial)
+                self.limit_money = MODI.get_limit_money(self,self.dial)
                 print("limit:", self.limit_money)
 
                 # Do action
@@ -94,7 +93,7 @@ class ProffesorBox:
                     
                     self.arduino.send_flag("1")
                     
-                    MODI.sad_tune(self.speaker)
+                    MODI.sad_tune(self, self.speaker)
                     self.led1.turn_off()
                     self.led2.turn_off()
                 else:
@@ -105,7 +104,7 @@ class ProffesorBox:
                     
                     self.arduino.send_flag("2")
 
-                    MODI.happy_tune(self.speaker, self.led1, self.led2)
+                    MODI.happy_tune(self, self.speaker, self.led1, self.led2)
                     self.led1.turn_off()
                     self.led2.turn_off()
 
