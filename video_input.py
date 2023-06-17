@@ -76,6 +76,12 @@ while True:
         yy = int(round(yc))
         rr = int(round(radius))
         cv2.circle(cropframe, (xx,yy), rr, (0, 0, 255), 2)
+        if 75 < radius < 79:
+            print("500 WON")
+        elif 68 < radius < 72:
+            print("100 WON")
+        elif 62 < radius < 66:
+            print("50 WON")
 
 
     cv2.imshow('Video', cropframe)
