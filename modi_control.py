@@ -31,6 +31,7 @@ SCALE_TABLE = {
 def get_limit_money(self, dial_module):
     deg = dial_module.degree
     print(deg)
+    
     if deg <= 15:
         limit_money = 50
     elif deg <= 29:
@@ -50,7 +51,7 @@ def get_limit_money(self, dial_module):
     
     return limit_money
 
-def happy_tune(self, speaker_module, led_module1, led_module2):
+def happy_tune(self, speaker_module):
     ###########################################
     speaker_module.tune = SCALE_TABLE['TI5'], 100
     time.sleep(0.1)
@@ -110,9 +111,6 @@ def happy_tune(self, speaker_module, led_module1, led_module2):
     time.sleep(0.4)
     speaker_module.turn_off()
     time.sleep(0.001)
-
-    led_module1.turn_off()
-    led_module2.turn_off()
 
 def sad_tune(self, speaker_module):
         speaker_module.tune = SCALE_TABLE['FA#6'], 100
