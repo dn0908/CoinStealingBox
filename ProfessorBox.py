@@ -63,17 +63,18 @@ class ProffesorBox:
             if self.button.pressed: 
                 self.check_on_off() # Check on/off when the button is pressed
             
-            elif self.power_flag: # Button is not pushed & device on
+            elif self.power_flag: # Button is not pressed & device on
                 self.display.text = "You have  " + str(self.current_money) + " Won!!"
                 
                 # Get money value from detection
                 money_value = 0
                 _, frame = self.cam.read()
                 cropframe = frame[150:350, 250:450]
-                money_value = Video.ohmanwon(cropframe)
-                money_value = Video.manwon(cropframe)
-                money_value = Video.cheonwon(cropframe)
-                money_value = Video.coin(cropframe)
+                money_value = video_processing.ohmanwon(cropframe)
+                money_value = video_processing.manwon(cropframe)
+                money_value = video_processing.ohcheonwon(cropframe)
+                money_value = video_processing.cheonwon(cropframe)
+                money_value = video_processing.coin(cropframe)
 
                 if money_value == 0 : # When nothing is detected
                     print('no money')

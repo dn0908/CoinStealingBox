@@ -1,8 +1,7 @@
 from imports import *
 
-def get_limit_money(self, dial_module):
+def get_limit_money(dial_module):
     deg = dial_module.degree
-    print(deg)
     
     if deg <= 15:
         limit_money = 50
@@ -23,7 +22,8 @@ def get_limit_money(self, dial_module):
     
     return limit_money
 
-def happy_tune(self, speaker_module):
+
+def happy_tune(speaker_module):
     ###########################################
     speaker_module.tune = Table.SCALE_TABLE['TI5'], 100
     time.sleep(0.1)
@@ -84,7 +84,8 @@ def happy_tune(self, speaker_module):
     speaker_module.turn_off()
     time.sleep(0.001)
 
-def sad_tune(self, speaker_module):
+
+def sad_tune(speaker_module):
     speaker_module.tune = Table.SCALE_TABLE['FA#6'], 100
     time.sleep(0.4)
     speaker_module.turn_off()
