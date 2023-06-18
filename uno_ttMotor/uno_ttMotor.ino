@@ -45,11 +45,11 @@ void loop() {
 }
 }
 void forward() {          //counter-clockwise
-  for(int i=0; i<13; i++)
+  for(int i=0; i<12; i++)
   {
     analogWrite(A1, 255);
     analogWrite(A2, 0);
-    delay(100);
+    delay(50);
     digitalWrite(A1, LOW);
     digitalWrite(A2, LOW);
     delay(50);
@@ -66,7 +66,7 @@ void forward() {          //counter-clockwise
 }
 
 void forward_v2() {          //counter-clockwise
-  for(int i=0; i<3; i++)
+  for(int i=0; i<1; i++)
   {
     analogWrite(A1, 255);
     analogWrite(A2, 0);
