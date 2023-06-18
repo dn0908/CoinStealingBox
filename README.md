@@ -30,7 +30,7 @@
     ![image](https://github.com/dn0908/CoinStealingBox/assets/97090402/c17d6c87-4b22-475c-b683-3c18ee4818a0)
 
 ## How to RUN
-1. Run main.py to run Professor Box. (Running code in [ProfessorBox.py](https://github.com/dn0908/CoinStealingBox/blob/main/ProfessorBox.py)
+1. Run main.py to run Professor Box. (Running code on [ProfessorBox.py](https://github.com/dn0908/CoinStealingBox/blob/main/ProfessorBox.py))
         ```
         python3 main.py
         ```
@@ -39,4 +39,4 @@
         
         cam = cv2.VideoCapture(0) # 0 for default camera, 1,2 for additionally plugged in cameras...
         
-3. Change Arduino's port number in class arduino_uno in [arduino_connect.py]("https://github.com/dn0908/CoinStealingBox/blob/main/arduino_connect.py)  
+3. Change Arduino's port number in class arduino_uno on [arduino_connect.py](https://github.com/dn0908/CoinStealingBox/blob/main/arduino_connect.py)
