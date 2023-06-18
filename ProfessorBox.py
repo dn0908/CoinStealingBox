@@ -10,7 +10,7 @@ class ProffesorBox:
         print("\nStarting modi!")
         self.bundles.print_topology_map()
 
-        self.led1 = self.bundles.leds[0]          # LED for Eye
+        self.led = self.bundles.leds[0]          # LED for Eye
         self.display = self.bundles.displays[0]   # Display
         self.button = self.bundles.buttons[0]     # Button for turning on/off
         self.dial = self.bundles.dials[0]         # Dial for limit of receiving money
@@ -43,7 +43,7 @@ class ProffesorBox:
                     break
             else:
                 self.count_threshold += 1
-                if (self.count_threshold > 20): # Button not pressed for 0.3 second
+                if (self.count_threshold > 30): # Button not pressed for 0.3 second
                     break
             time.sleep(0.01)
 
