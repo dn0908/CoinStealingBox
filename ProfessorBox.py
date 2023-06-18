@@ -1,7 +1,4 @@
 from imports import *
-import modi_control
-from arduino_connect import arduino_uno, SerialWrapper
-from video_processing import Video
 
 class ProffesorBox:
     def __init__(self):

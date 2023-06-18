@@ -1,4 +1,5 @@
 from imports import *
+
 def preProcessing(img):
         preImg = cv2.GaussianBlur(img, (5, 5), 3)
         thresh1 = 30
