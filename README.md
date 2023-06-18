@@ -8,7 +8,7 @@
   - PyModi API
  
   **Image(Video) Preprocessed by OpenCV**
- ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/8660818a-3541-4533-9fc9-e316274fee85)
+  ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/6bee7946-5452-4a82-a377-77d363c31b0e)
 
 ## Hardware Specifications
 - PyMODI kit : LED, Button, Dial, Speaker, Display, SerialCommunication Module used
@@ -19,7 +19,7 @@
 - VISVI STUDY9 Webcam
   
   ### Circuit Diagram for UNO
-    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/0c508a8f-63a2-4f39-add2-e88daa801fa0)
+    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/2c0b0ed1-2d21-4af3-8d55-aba2a4def061)
 
   ### Circuit Diagram for MODI
     ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/65a91ab4-e5b1-414c-b0a1-f0d146d108b4)
