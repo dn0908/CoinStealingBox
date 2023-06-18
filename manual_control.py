@@ -1,9 +1,14 @@
 from imports import *
 import modi_control
 from arduino_connect import arduino_uno, SerialWrapper
-from video_processing import Video
 
-class ProffesorBox:
+def get_money_value_index_manual():
+    print("Money you want to put:")
+    money = int(input())
+
+    return money
+
+class ProffesorBox_manual:
     def __init__(self):
         # Arduino serial connection
         self.arduino = SerialWrapper(device=arduino_uno)
@@ -70,65 +75,53 @@ class ProffesorBox:
                 self.display.text = "You have  " + str(self.current_money) + " Won!!"
                 
                 # Get money value from detection
-                cam = cv2.VideoCapture(1)
+                money_value = get_money_value_index_manual()
                 
-                while True:
-                    _, frame = cam.read()
-                    hight, width, _ = frame.shape
-                    print('frame:',hight, '-', width)
-                    cropframe = frame[150:350, 250:450]
-
-                    money_value = Video.ohmanwon(cropframe)
-                    money_value = Video.manwon(cropframe)
-                    money_value = Video.cheonwon(cropframe)
-                    money_value = Video.coin(cropframe)
-
-                    cv2.imshow('Video', cropframe)
-
-                    # Search for money index
-                    money_index = 0
-                    for i in range(len(self.money_list)):
-                        if money_value == self.money_list[i]:
-                            money_index = i
-                            break
-
-                    # Display
-                    money_str_list = ["   50", "  100", "  500", " 1000", " 5000", "10000", "50000"]
-                    display_str = "MONEY!!       " + money_str_list[money_index] + " W_W"
-                    self.display.text = display_str
-                    time.sleep(2)
-
-                    # Get limit money
-                    self.limit_money = modi_control.get_limit_money(self,self.dial)
-                    print("limit:", self.limit_money)
-
-                    # Do action
-                    if money_value < self.limit_money:
-                        self.display.text = "NO !!!!!!!! GO AWAY !!!"
-                        self.led1.red = 100
-                        
-                        modi_control.sad_tune(self, self.speaker)
-                        self.led1.turn_off()
-
-                    else:
-                        self.display.text = "YES !!!!!!! GIVE ME !!!"
-                        self.current_money += money_value
-                        self.led1.green = 50
-                        
-                        self.arduino.send_flag("1")
-
-                        modi_control.happy_tune(self, self.speaker)
-                        self.led1.turn_off()
-
-                    self.display.clear()
-                    
-
-                    key = cv2.waitKey(1)
-                    if key == ord('q'):
-                        cv2.destroyAllWindows()
+                # Search for money index
+                money_index = 0
+                for i in range(len(self.money_list)):
+                    if money_value == self.money_list[i]:
+                        money_index = i
                         break
 
+                # Display
+                money_str_list = ["   50", "  100", "  500", " 1000", " 5000", "10000", "50000"]
+                display_str = "MONEY!!       " + money_str_list[money_index] + " W_W"
+                self.display.text = display_str
+                time.sleep(2)
 
-# if __name__ == "__main__":
-#     Box = ProffesorBox()
-#     Box.run()
+                # Get limit money
+                self.limit_money = modi_control.get_limit_money(self,self.dial)
+                print("limit:", self.limit_money)
+
+                # Do action
+                if money_value < self.limit_money:
+                    self.display.text = "NO !!!!!!!! GO AWAY !!!"
+                    self.led1.red = 100
+                    # self.led2.red = 100
+                    
+                    # self.arduino.send_flag("2")
+                    
+                    modi_control.sad_tune(self, self.speaker)
+                    self.led1.turn_off()
+                    # self.led2.turn_off()
+                else:
+                    self.display.text = "YES !!!!!!! GIVE ME !!!"
+                    self.current_money += money_value
+                    self.led1.green = 50
+                    # self.led2.green = 50
+                    
+                    self.arduino.send_flag("1")
+
+                    modi_control.happy_tune(self, self.speaker)
+                    self.led1.turn_off()
+                    # self.led2.turn_off()
+
+                self.display.clear()
+
+
+if __name__ == "__main__":
+    print("HELLO WORLD")
+    Box_manual = ProffesorBox_manual()
+    Box_manual.run()
+

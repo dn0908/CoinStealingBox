@@ -21,12 +21,6 @@ while True:
     print('frame:',hight, '-', width)
     cropframe = frame[150:350, 250:450]
 
-    hsv = cv2.cvtColor(cropframe, cv2.COLOR_BGR2HSV)
-    print(hsv.min(axis=(0, 1)), hsv.max(axis=(0, 1)))
-
-
-    # HSV range values needs to be changed....
-
     # 만원
     green_lower=(30,50,50)
     green_higher=(40,255,255)
@@ -35,7 +29,6 @@ while True:
     green_contours, _ = cv2.findContours(green, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     for cnt in green_contours:
         print('GREEN == 10000 WON')
-
 
     # 천원
     blue_lower=(80,80,0)
