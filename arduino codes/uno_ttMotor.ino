@@ -1,4 +1,4 @@
-// Motor Pin Number
+// Define Motor Pin Number
 #define A1 5  // Yello (A-1B)
 #define A2 6  // Green (A-1A)
 
@@ -30,13 +30,13 @@ void loop() {
     input = incomingByte - 48; //convert ASCII code
 
   switch (input) { 
-    case 1:         // if input=1 ....... motor turn counter-clockwise
-      forward();
+    case 1:         // if input=1 ....... motor turn counter-clockwise for long period
+      forward_long();
       break;
-    case 2:         // if input=2 ....... motor turn clockwise
-      forward_v2();
+    case 2:         // if input=2 ....... motor turn counter-clockwise for short period
+      forward_short();
       break;
-    case 3:         // if input=1 ....... motor turn stop
+    case 3:         // if input=1 ....... motor stop
       Stop();
       break;
   }
@@ -44,7 +44,7 @@ void loop() {
   input=0;
 }
 }
-void forward() {          //counter-clockwise
+void forward_long() {          //counter-clockwise for long period
   for(int i=0; i<12; i++)
   {
     analogWrite(A1, 255);
@@ -54,18 +54,9 @@ void forward() {          //counter-clockwise
     digitalWrite(A2, LOW);
     delay(50);
   }
-//  for(int i=0; i<7; i++)
-//  {
-//    analogWrite(A1, 255);
-//    analogWrite(A2, 0);
-//    delay(30);
-//    digitalWrite(A1, LOW);
-//    digitalWrite(A2, LOW);
-//    delay(50);
-//  }
 }
 
-void forward_v2() {          //counter-clockwise
+void forward_short() {          //counter-clockwise for short period
   for(int i=0; i<1; i++)
   {
     analogWrite(A1, 255);
@@ -75,14 +66,6 @@ void forward_v2() {          //counter-clockwise
     digitalWrite(A2, LOW);
     delay(70);
   }
-}
-
-void backward() {         //clockwise
-  analogWrite(A1, 0);
-  analogWrite(A2, 200);
-  delay(1200);
-  digitalWrite(A1, LOW);
-  digitalWrite(A2, LOW);
 }
 
 void Stop() {              //function of stop
