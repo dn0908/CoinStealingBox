@@ -1,8 +1,39 @@
 from imports import *
 
+# Check ON/OFF
+def check_on_off(button, display, power_flag, count_for_button, count_threshold):
+        count_for_button = 0
+        while True:
+            if button.pressed:
+                print("pressed", count_for_button)
+                count_for_button += 1
+                if (count_for_button == 100): # Button pressed for 1 second
+                    if power_flag:
+                        power_flag = False
+                    else: 
+                        power_flag = True
+                    count_for_button = 0
+                    set_display(display, power_flag)
+                    break
+            else:
+                count_threshold += 1
+                if (count_threshold > 30): # Button not pressed for 0.3 second
+                    break
+            time.sleep(0.01)
+
+# Set Display Module
+def set_display(display, power_flag):
+        if power_flag == True:
+            display.text = "Hello!!"
+            time.sleep(3)
+        else:
+            display.text = "Bye!!"
+            time.sleep(3)
+        display.clear()
+
+# Dial Module get limit value
 def get_limit_money(dial_module):
     deg = dial_module.degree
-    
     if deg <= 15:
         limit_money = 50
     elif deg <= 29:
@@ -18,11 +49,11 @@ def get_limit_money(dial_module):
     elif deg <= 100:
         limit_money = 50000
     else:
-        print("Something gone wrong with the dial")
+        print("[ERROR] Dial Module ERROR !")
     
     return limit_money
 
-
+# Speacker Module Happy Sound
 def happy_tune(speaker_module):
     ###########################################
     speaker_module.tune = Table.SCALE_TABLE['TI5'], 100
@@ -84,7 +115,7 @@ def happy_tune(speaker_module):
     speaker_module.turn_off()
     time.sleep(0.001)
 
-
+# Speacker Module Sad Sound
 def sad_tune(speaker_module):
     speaker_module.tune = Table.SCALE_TABLE['FA#6'], 100
     time.sleep(0.4)

@@ -35,8 +35,8 @@ def manwon(img):
         return moneyvalue
 
 def ohcheonwon(img):
-    red_lower=(100,100,220)
-    red_higher=(150,150,220)
+    red_lower=(11,50,50)
+    red_higher=(20,255,255)
     red = cv2.inRange(img, red_lower, red_higher)
     # cv2.imshow('red',red)
     red_contours, _ = cv2.findContours(red, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)

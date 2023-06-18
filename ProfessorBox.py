@@ -27,41 +27,12 @@ class ProffesorBox:
         self.count_for_button = 0
         self.count_threshold = 0
         self.money_list = [50, 100, 500, 1000, 5000, 10000, 50000]
-    
-    def check_on_off(self):
-        self.count_for_button = 0
-        while True:
-            if self.button.pressed:
-                print("pressed", self.count_for_button)
-                self.count_for_button += 1
-                if (self.count_for_button == 100): # Button pressed for 1 second
-                    if self.power_flag:
-                        self.power_flag = False
-                    else: 
-                        self.power_flag = True
-                    self.count_for_button = 0
-                    self.set_display()
-                    break
-            else:
-                self.count_threshold += 1
-                if (self.count_threshold > 30): # Button not pressed for 0.3 second
-                    break
-            time.sleep(0.01)
 
-    def set_display(self):
-        if self.power_flag == True:
-            self.display.text = "Hello!!"
-            time.sleep(3)
-        else:
-            self.display.text = "Bye!!"
-            time.sleep(3)
-
-        self.display.clear()
-
+    # Run Professor Box
     def run(self):
         while True:
             if self.button.pressed: 
-                self.check_on_off() # Check on/off when the button is pressed
+                modi_control.check_on_off(self.button, self.display, self.power_flag, self.count_for_button, self.count_threshold) # Check on/off when the button is pressed
             
             elif self.power_flag: # Button is not pressed & device on
                 self.display.text = "You have  " + str(self.current_money) + " Won!!"
@@ -76,8 +47,9 @@ class ProffesorBox:
                 money_value = video_processing.cheonwon(cropframe)
                 money_value = video_processing.coin(cropframe)
 
+
                 if money_value == 0 : # When nothing is detected
-                    print('no money')
+                    print('no money detected')
 
                 else: # When money detected
                     # Search for money index
