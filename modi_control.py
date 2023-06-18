@@ -85,22 +85,22 @@ def happy_tune(self, speaker_module):
     time.sleep(0.001)
 
 def sad_tune(self, speaker_module):
-        speaker_module.tune = Table.SCALE_TABLE['FA#6'], 100
-        time.sleep(0.4)
-        speaker_module.turn_off()
-        time.sleep(0.001)
+    speaker_module.tune = Table.SCALE_TABLE['FA#6'], 100
+    time.sleep(0.4)
+    speaker_module.turn_off()
+    time.sleep(0.001)
 
-        speaker_module.tune = Table.SCALE_TABLE['FA6'], 100
-        time.sleep(0.4)
-        speaker_module.turn_off()
-        time.sleep(0.001)
+    speaker_module.tune = Table.SCALE_TABLE['FA6'], 100
+    time.sleep(0.4)
+    speaker_module.turn_off()
+    time.sleep(0.001)
 
-        speaker_module.tune = Table.SCALE_TABLE['MI6'], 100
-        time.sleep(0.4)
-        speaker_module.turn_off()
-        time.sleep(0.001)
+    speaker_module.tune = Table.SCALE_TABLE['MI6'], 100
+    time.sleep(0.4)
+    speaker_module.turn_off()
+    time.sleep(0.001)
 
-        speaker_module.tune = Table.SCALE_TABLE['RE#6'], 100
-        time.sleep(1)
-        speaker_module.turn_off()
-        time.sleep(0.001)
+    speaker_module.tune = Table.SCALE_TABLE['RE#6'], 100
+    time.sleep(1)
+    speaker_module.turn_off()
+    time.sleep(0.001)
