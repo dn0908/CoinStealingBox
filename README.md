@@ -27,10 +27,10 @@
     ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/2c0b0ed1-2d21-4af3-8d55-aba2a4def061)
 
   ### Circuit Diagram for MODI
-    ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/65a91ab4-e5b1-414c-b0a1-f0d146d108b4)
+    ![image](https://github.com/dn0908/CoinStealingBox/assets/97090402/c17d6c87-4b22-475c-b683-3c18ee4818a0)
 
 ## How to RUN
-1. Run main.py to run Professor Box. (Running code on ProfessorBox.py)
+1. Run main.py to run Professor Box. (Running code on [ProfessorBox.py](https://github.com/dn0908/CoinStealingBox/blob/main/ProfessorBox.py)  
         ```
         python3 main.py
         ```
@@ -38,4 +38,6 @@
 
         
         cam = cv2.VideoCapture(0) # 0 for default camera, 1,2 for additionally plugged in cameras...
+        
+3. Change Arduino's port number in class arduino_uno in [arduino_connect.py]("https://github.com/dn0908/CoinStealingBox/blob/main/arduino_connect.py)
         
