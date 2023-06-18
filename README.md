@@ -31,11 +31,11 @@
 
 ## How to RUN
 1. Run main.py to run Professor Box. (Running code on ProfessorBox.py)
-    * Video Port
         ```
         python3 main.py
         ```
 2. If using labtop's camera, change as below
-        ```
+
+        
         cam = cv2.VideoCapture(0) # 0 for default camera, 1,2 for additionally plugged in cameras...
-        ```
+        
