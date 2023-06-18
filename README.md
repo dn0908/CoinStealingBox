@@ -2,6 +2,9 @@
   * **2023-Spring Semester Yonsei University**
   * **IoT & Robotics Project**
   * **연세대학교 [IoT와 로보틱스] 프로젝트**
+   https://github.com/dn0908/CoinStealingBox/assets/94898107/60baa53e-e985-4462-94fc-1c9faa597ad1
+
+
 
 ## Software Specifications
   - Window10 & Python 3.8
