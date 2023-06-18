@@ -105,20 +105,20 @@ class ProffesorBox:
                         # Do action
                         if money_value < self.limit_money:
                             self.display.text = "NO !!!!!!!! GO AWAY !!!"
-                            self.led1.red = 100
+                            self.led.red = 100
                             
                             modi_control.sad_tune(self, self.speaker)
-                            self.led1.turn_off()
+                            self.led.turn_off()
 
                         else:
                             self.display.text = "YES !!!!!!! GIVE ME !!!"
                             self.current_money += money_value
-                            self.led1.green = 50
+                            self.led.green = 50
                             
                             self.arduino.send_flag("1")
 
                             modi_control.happy_tune(self, self.speaker)
-                            self.led1.turn_off()
+                            self.led.turn_off()
 
                         self.display.clear()
                     
