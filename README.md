@@ -38,5 +38,4 @@
 
         
         cam = cv2.VideoCapture(0) # 0 for default camera, 1,2 for additionally plugged in cameras...
-        
 3. Change Arduino's port number in class arduino_uno on [arduino_connect.py](https://github.com/dn0908/CoinStealingBox/blob/main/arduino_connect.py)
