@@ -4,9 +4,10 @@ import cv2
 import numpy as np
 import modi
 from skimage import measure 
+
 import modi_control
 from arduino_connect import arduino_uno, SerialWrapper
-from video_processing import Video
+import video_processing
 
 class Table:
     # Scale Table

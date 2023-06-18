@@ -6,7 +6,6 @@ class arduino_uno:
 
 class SerialWrapper():
     def __init__(self, device, timeout=1):
-
         # Open device communication
         try:
             self.device = serial.Serial(device.port, device.baudrate, timeout=1)
@@ -26,14 +25,12 @@ class SerialWrapper():
             if (line == "3.stop"):
                 self.init_flag = True
 
-
     def read_line(self):
         if self.device.readable():
             line = self.device.readline().decode('utf-8').rstrip()
 
             return line      
     
-    # copied from chang-seol happeeeee
     def send_flag(self, flag):
         self.device.write(flag.encode())
 
