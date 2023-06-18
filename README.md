@@ -3,8 +3,8 @@
   * **IoT & Robotics Project**
   * **연세대학교 [IoT와 로보틱스] 프로젝트**
     - [작동 영상]
-   https://github.com/dn0908/CoinStealingBox/assets/94898107/60baa53e-e985-4462-94fc-1c9faa597ad1
-   https://github.com/dn0908/CoinStealingBox/assets/94898107/2a5b2215-107a-4ae2-afcf-7cd2072f4022
+
+       https://github.com/dn0908/CoinStealingBox/assets/94898107/72dbe31f-9078-4505-980b-bd1d0e629edd
 
 ## Software Specifications
   - Window10 & Python 3.8
@@ -12,6 +12,8 @@
  
   **Image(Video) Preprocessed by OpenCV**
   ![image](https://github.com/dn0908/CoinStealingBox/assets/94898107/6bee7946-5452-4a82-a377-77d363c31b0e)
+
+
 
 ## Hardware Specifications
 - PyMODI kit : LED, Button, Dial, Speaker, Display, SerialCommunication Module used
